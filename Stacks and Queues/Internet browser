@@ -1,0 +1,26 @@
+import java.util.ArrayDeque;
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+
+        ArrayDeque<String> browser = new ArrayDeque<>();
+        String line = sc.nextLine();
+        browser.push(line);
+
+        while (!line.equals("Home")) {
+            if (line.equals("back")) {
+                browser.pop();
+                System.out.println(browser.peek());
+            } else {
+                browser.push(line);
+                System.out.println(browser.peek());
+            }
+            line = sc.nextLine();   // ! important to be last
+        }
+        System.out.println(browser.peekLast());   // Last means the FIRST one pushed in!
+    }
+}
+
