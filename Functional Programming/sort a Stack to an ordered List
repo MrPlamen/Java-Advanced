@@ -1,0 +1,11 @@
+    private static void printMaximumElement(ArrayDeque<String> stack) {
+        List<Integer> sortedStackList = stack
+                .stream()
+                .map(Integer::parseInt)
+                .sorted()
+                .toList();
+
+        int maximumValue = sortedStackList.get(sortedStackList.size() - 1);
+
+        System.out.println(maximumValue);
+    }
