@@ -9,9 +9,7 @@ public class Main {
 
         ArrayDeque<String> myStack = new ArrayDeque<>();
 
-        for (String item : input) {
-            myStack.push(item);
-        }
+        addItemsToStack(input, myStack);
 
         List<String> reversedList = new ArrayList<>();
 
@@ -21,6 +19,12 @@ public class Main {
 
         for (String item: reversedList) {
             System.out.print(item + " ");
+        }
+    }
+
+    private static void addItemsToStack(String[] arrayOfInputs, ArrayDeque<String> stack) {
+        for (String item : arrayOfInputs) {
+            stack.push(item);
         }
     }
 }
