@@ -1,3 +1,9 @@
     private static void printAllNames(List<String> modifiedNames) {
         modifiedNames.forEach(System.out::println);
     }
+
+// More useful:
+
+    private static void printAllNames(List<String> modifiedNames) {
+        modifiedNames.forEach(name -> System.out.print(name + " "));
+    }
