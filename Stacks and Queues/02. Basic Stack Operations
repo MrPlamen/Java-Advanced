@@ -1,0 +1,50 @@
+import java.util.*;
+import java.util.stream.Collectors;
+
+public class Main {
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+
+        String[] inputLineOne = sc.nextLine().split("\\s+");
+
+        int numberOfElemsToPush = Integer.parseInt(inputLineOne[0]);
+        int numberOfElemsToPop = Integer.parseInt(inputLineOne[1]);
+        int elementToCheckIfPresent = Integer.parseInt(inputLineOne[2]);
+
+        String[] inputLineTwo = sc.nextLine().split(" ");
+        ArrayDeque<Integer> stack = new ArrayDeque<>();
+
+        populateStack(inputLineTwo, stack);
+
+        popElementsFromStack(numberOfElemsToPop, stack);
+
+        if (stack.isEmpty()) {
+            System.out.println(0);
+        } else if (stack.contains(elementToCheckIfPresent)) {
+            System.out.println(true);
+        } else {
+            System.out.println(printTheSmallestNumber(stack));
+        }
+
+    }
+
+    private static String printTheSmallestNumber(ArrayDeque<Integer> stack) {
+        Stack<Integer> sortedStack =  stack.stream()
+                .sorted()
+                .collect(Collectors.toCollection(Stack::new));
+        return sortedStack.firstElement().toString();
+    }
+
+    private static void popElementsFromStack(int numberOfElemsToPop, ArrayDeque<Integer> stack) {
+        for (int i = 0; i < numberOfElemsToPop; i++) {
+            stack.pop();
+        }
+    }
+
+    private static void populateStack(String[] inputLineTwo, ArrayDeque<Integer> stack) {
+        for (String item : inputLineTwo) {
+            stack.push(Integer.parseInt(item));
+        }
+    }
+}
