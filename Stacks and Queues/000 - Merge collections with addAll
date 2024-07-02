@@ -1,0 +1,14 @@
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+
+        String[] array = {"Pineapple", "Orange", "Grapefruit", "Lemon"};
+
+        ArrayDeque<String> stack = new ArrayDeque<>();
+
+        stack.push("Cucumber");
+
+        Collections.addAll(stack, array);       // Now stack contains "Cucumber", "Pineapple", "Orange", "Grapefruit", "Lemon"
+    }
+}
