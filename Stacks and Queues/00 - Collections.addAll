@@ -1,0 +1,16 @@
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
+public class AddAllExample {
+    public static void main(String[] args) {
+        // Create a new ArrayList
+        List<String> fruits = new ArrayList<>();
+
+        // Add elements using Collections.addAll
+        Collections.addAll(fruits, "Apple", "Orange", "Banana");
+
+        // Print the elements of the list
+        System.out.println("List of fruits: " + fruits);
+    }
+}
