@@ -1,0 +1,51 @@
+import java.util.*;
+import java.util.stream.Collectors;
+
+public class Main {
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+
+        int[] commandArray = streamToIntArray(sc);
+
+        //int numOfElementsToAdd = commandArray[0];
+        int elementsToRemove = commandArray[1];
+        int numberToCheckIfPresent = commandArray[2];
+
+        int[] elementsArray = streamToIntArray(sc);
+
+        ArrayDeque<Integer> queue = new ArrayDeque<>();
+
+        for (int elem : elementsArray) {
+            queue.offer(elem);
+        }
+        for (int i = 0; i < elementsToRemove; i++) {
+            queue.poll();
+        }
+        if (queue.contains(numberToCheckIfPresent)) {
+            System.out.println(true);
+        } else {
+            printSmallestQueueElement(queue);
+        }
+
+
+    }
+
+    private static void printSmallestQueueElement(ArrayDeque<Integer> queue) {
+        List<Integer> listOfQueue = queue.stream()
+                .sorted()
+                .toList();
+        if (queue.isEmpty()) {
+            System.out.println(0);
+        } else {
+            System.out.println(listOfQueue.get(0));
+        }
+    }
+
+    private static int[] streamToIntArray(Scanner sc) {
+        int[] array = Arrays.stream(sc.nextLine().split("\\s+"))
+                .mapToInt(Integer::parseInt)
+                .toArray();
+        return array;
+    }
+}
