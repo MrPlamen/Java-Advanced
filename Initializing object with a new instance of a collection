@@ -1,0 +1,9 @@
+public class University {
+
+    public int capacity;
+    public List<Student> students;
+
+    public University(int capacity) {
+        this.capacity = capacity;
+        this.students = new ArrayList<>();    // !!!
+    }
