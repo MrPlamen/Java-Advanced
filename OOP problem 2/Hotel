@@ -1,0 +1,69 @@
+package hotel;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class Hotel {
+
+    private String name;
+    private int capacity;
+    private List<Person> roster;
+
+    public Hotel(String name, int capacity) {
+        this.name = name;
+        this.capacity = capacity;
+        this.roster = new ArrayList<>();
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public int getCapacity() {
+        return capacity;
+    }
+
+    public void setCapacity(int capacity) {
+        this.capacity = capacity;
+    }
+
+    public void add(Person person) {
+        if (roster.size() < getCapacity()) {
+            roster.add(person);
+        }
+    }
+
+    public boolean remove(String name) {
+        for (Person p : roster) {
+            if (p.getName().equals(name)) {
+                roster.remove(p);
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public Person getPerson(String name, String hometown) {
+        for (Person p : roster) {
+            if (p.getName().equals(name) && p.getHometown().equals(hometown)) {
+                return p;
+            }
+        }
+        return null;
+    }
+
+    public int getCount() {
+        return roster.size();
+    }
+
+    public String getStatistics() {
+        StringBuilder returnedText = new StringBuilder();
+        returnedText.append(String.format("The people in the hotel %s are:", this.name));
+        roster.forEach(p -> returnedText.append(p).toString());
+        return returnedText.toString();
+    }
+}
