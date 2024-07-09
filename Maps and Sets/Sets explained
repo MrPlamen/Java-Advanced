@@ -1,0 +1,42 @@
+Sets guarantee uniqueness of the elements, but do NOT guarantee preservation of the order of the elements
+
+1. HashSet
+
+myset.add(73);
+myset.add(42);
+myset.add(99);
+myset.add(12);
+
+foreach from myset result (absolutely random storing):
+42
+12
+99
+73
+----------------------------------------------
+2. TreeSet
+
+myset.add(73);
+myset.add(42);
+myset.add(99);
+myset.add(12);
+
+foreach from myset result (the elements are stored sorted):
+12
+42
+73
+99
+-----------------------------------------------
+3.  LinkedHashSet
+
+myset.add(73);
+myset.add(42);
+myset.add(99);
+myset.add(12);
+
+foreach from myset result (the elements are stored IN THE ORDER THEY WERE ADDED):
+73
+42
+99
+12
+
+Why use Sets and not Queues? - Because Sets are the fastest regarding time and memory complexity.
