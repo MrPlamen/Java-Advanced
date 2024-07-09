@@ -1,0 +1,25 @@
+public class ControllerImpl implements Controller {
+
+    private FoodRepository foodRepository;
+    private Map<String, Area> areas;
+
+    public ControllerImpl() {
+        this.areas = new HashMap<>();
+    }
+
+    @Override
+    public String addArea(String areaType, String areaName) {
+
+        Area area;
+
+        if (areaType.equals("WaterArea")) {
+            area = new WaterArea(areaName);
+        } else if (areaType.equals("LandArea")) {
+            area = new LandArea(areaName);
+        } else {
+            throw new NullPointerException(INVALID_AREA_TYPE);
+        }
+        areas.put(area.getName(), area);
+        return String.format("Successfully added %s.", areaType);
+
+    }
