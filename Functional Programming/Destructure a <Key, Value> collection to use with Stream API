@@ -1,0 +1,7 @@
+    @Override
+    public String getStatistics() {
+
+        return areas.values().stream()
+                .map(Area::getInfo)
+                .collect(Collectors.joining(System.lineSeparator()));
+    }
