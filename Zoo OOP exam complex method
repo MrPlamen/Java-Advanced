@@ -1,0 +1,26 @@
+    @Override
+    public String addAnimal(String areaName, String animalType, String animalName, String kind, double price) {
+
+        Animal animal;
+
+        if (animalType.equals("AquaticAnimal")) {
+            animal = new AquaticAnimal(animalName, kind, price);
+        } else if (animalType.equals("TerrestrialAnimal")) {
+            animal = new TerrestrialAnimal(animalName, kind, price);
+        } else {
+            throw new IllegalArgumentException(INVALID_ANIMAL_TYPE);
+        }
+
+        Area area = areas.get(areaName);                    // !!!!!
+
+        String areaType = area.getClass().getSimpleName();
+
+        if (areaType.equals("LandArea") && animalType.equals("AquaticAnimal")
+        || areaType.equals("WaterArea") && animalType.equals("TerrestrialAnimal")) {
+            return String.format("The external living environment is not suitable.");
+        }
+
+        area.addAnimal(animal);
+
+        return String.format("Successfully added %s to %s.", animalType, areaName);
+    }
