@@ -1,0 +1,12 @@
+    @Override
+    public String calculateKg(String areaName) {
+
+        Area area = areas.get(areaName);
+
+        double sumKg = area.getAnimals()
+                .stream()
+                .mapToDouble(Animal :: getKg)
+                .sum();
+
+        return String.format(KILOGRAMS_AREA, areaName, sumKg);
+    }
