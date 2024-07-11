@@ -1,0 +1,75 @@
+In Java, maps always have both keys and values. 
+The Map interface represents a collection of key-value pairs where each key maps to exactly one value. 
+This differs from sets in several fundamental ways.
+
+Key Characteristics of Maps
+
+Key-Value Pairs: Each entry in a map consists of a key and a value. Each key is unique, but values do not have to be.
+Example: A HashMap<String, Integer> could store pairs like ("apple", 10), ("banana", 20), ("cherry", 30).
+
+Key Characteristics of Sets
+
+Unique Elements: A set is a collection that contains no duplicate elements. Each element in the set must be unique.
+No Key-Value Pairs: Unlike maps, sets do not store key-value pairs, only individual elements.
+Example: A HashSet<String> could store elements like ["apple", "banana", "cherry"].
+
+Comparing Maps and Sets
+
+Maps
+Structure: Key-value pairs.
+Keys and Values: Each key is associated with one value.
+Uniqueness: Keys must be unique; values can be duplicated.
+Implementations: HashMap, TreeMap, LinkedHashMap, etc.
+Usage: Suitable for scenarios where you need to associate unique keys with specific values.
+
+Sets
+Structure: Single elements.
+Elements: No concept of keys or values, just individual elements.
+Uniqueness: All elements must be unique.
+Implementations: HashSet, TreeSet, LinkedHashSet, etc.
+Usage: Suitable for scenarios where you need to maintain a collection of unique elements.
+
+Example of Using a HashMap
+
+import java.util.HashMap;
+import java.util.Map;
+
+public class Main {
+    public static void main(String[] args) {
+        // Creating a HashMap
+        Map<String, Integer> map = new HashMap<>();
+
+        // Inserting key-value pairs
+        map.put("apple", 10);
+        map.put("banana", 20);
+        map.put("cherry", 30);
+
+        // Retrieving a value
+        int appleValue = map.get("apple");
+        System.out.println("Value associated with 'apple': " + appleValue);
+
+        // Removing a key-value pair
+        map.remove("banana");
+
+        // Checking if a key exists
+        boolean hasCherry = map.containsKey("cherry");
+        System.out.println("Contains 'cherry'? " + hasCherry);
+
+        // Iterating over keys
+        for (String key : map.keySet()) {
+            System.out.println("Key: " + key);
+        }
+
+        // Iterating over values
+        for (int value : map.values()) {
+            System.out.println("Value: " + value);
+        }
+
+        // Iterating over entries
+        for (Map.Entry<String, Integer> entry : map.entrySet()) {
+            System.out.println("Key: " + entry.getKey() + ", Value: " + entry.getValue());
+        }
+    }
+}
+
+
