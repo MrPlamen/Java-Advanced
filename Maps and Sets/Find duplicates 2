@@ -1,0 +1,34 @@
+import java.util.*;
+import java.util.stream.Collectors;
+
+public class Main {
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+
+        String inputLine = sc.nextLine();
+
+        List<Integer> listOfInput = Arrays.stream(inputLine.split(" "))
+                .map(Integer::parseInt)
+                .collect(Collectors.toList());
+
+        Set<Integer> setOfInput = Arrays.stream(inputLine.split(" "))
+                .map(Integer::parseInt)
+                .collect(Collectors.toSet());
+
+        if (listOfInput.size() == setOfInput.size()) {
+            System.out.println("No duplicates");
+        } else {
+            List<Integer> duplicates = new ArrayList<>();
+            System.out.printf("Duplicates found: %d%n", listOfInput.size() - setOfInput.size());
+            for (int i = 0; i < listOfInput.size() - 1; i++) {
+                for (int j = i + 1; j < listOfInput.size(); j++) {
+                    if (listOfInput.get(i) == listOfInput.get(j) && !duplicates.contains(listOfInput.get(i))) {
+                        duplicates.add(listOfInput.get(i));
+                    }
+                }
+            }
+            duplicates.forEach(s -> System.out.printf("%s is duplicated%n", s));
+        }
+    }
+}
