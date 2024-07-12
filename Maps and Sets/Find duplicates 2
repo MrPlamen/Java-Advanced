@@ -21,14 +21,23 @@ public class Main {
         } else {
             List<Integer> duplicates = new ArrayList<>();
             System.out.printf("Duplicates found: %d%n", listOfInput.size() - setOfInput.size());
-            for (int i = 0; i < listOfInput.size() - 1; i++) {
-                for (int j = i + 1; j < listOfInput.size(); j++) {
-                    if (listOfInput.get(i) == listOfInput.get(j) && !duplicates.contains(listOfInput.get(i))) {
-                        duplicates.add(listOfInput.get(i));
-                    }
+            
+            standardCheckForSpecificDuplicates(listOfInput, duplicates);
+            duplicates.forEach(s -> System.out.printf("%s is duplicated%n", s));
+        }
+    }
+
+    private static void standardCheckForSpecificDuplicates(List<Integer> listOfInput, List<Integer> duplicates) {
+        for (int i = 0; i < listOfInput.size() - 1; i++) {
+            for (int j = i + 1; j < listOfInput.size(); j++) {
+                
+                Integer currentListNumber = listOfInput.get(i);
+                Integer nextListNumber = listOfInput.get(j);
+                
+                if (currentListNumber == nextListNumber && !duplicates.contains(currentListNumber)) {
+                    duplicates.add(currentListNumber);
                 }
             }
-            duplicates.forEach(s -> System.out.printf("%s is duplicated%n", s));
         }
     }
 }
