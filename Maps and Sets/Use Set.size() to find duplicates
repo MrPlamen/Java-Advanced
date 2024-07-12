@@ -1,0 +1,28 @@
+import java.util.Arrays;
+import java.util.List;
+import java.util.Scanner;
+import java.util.Set;
+import java.util.stream.Collectors;
+
+public class Main {
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+
+        String inputLine = sc.nextLine();
+
+        List<Integer> listOfInput = Arrays.stream(inputLine.split(" "))
+                .map(Integer::parseInt)
+                .collect(Collectors.toList());
+
+        Set<Integer> setOfInput = Arrays.stream(inputLine.split(" "))
+                .map(Integer::parseInt)
+                .collect(Collectors.toSet());
+
+        if (listOfInput.size() == setOfInput.size()) {
+            System.out.println("No duplicates");
+        } else {
+            System.out.printf("Duplicates found: %d%n", listOfInput.size() - setOfInput.size());
+        }
+    }
+}
