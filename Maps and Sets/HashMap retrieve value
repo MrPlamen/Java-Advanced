@@ -1,0 +1,14 @@
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+
+        HashMap<String, Integer> map = new HashMap<>();
+
+        map.put("Subaru", 2012);
+        map.put("Toyota", 2009);
+        map.put("Other", 2011);
+
+        System.out.println(map.get("Subaru"));
+    }
+}
