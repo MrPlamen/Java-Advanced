@@ -1,0 +1,41 @@
+import java.util.*;
+import java.util.stream.Collectors;
+
+public class Main {
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+
+        Set<Integer> setOne = new LinkedHashSet<>();
+        Set<Integer> setTwo = new LinkedHashSet<>();
+        Set<Integer> resultSet = new LinkedHashSet<>();
+
+        int[] firstLine = Arrays.stream((sc.nextLine().split(" ")))
+                .mapToInt(Integer::parseInt)
+                .toArray();
+
+        int setOneLength = firstLine[0];
+        int setTwoLength = firstLine[1];
+
+        populateSet(sc, setOne, setOneLength);
+        populateSet(sc, setTwo, setTwoLength);
+
+        for (int item : setOne) {
+            if (setTwo.contains(item)) {
+                resultSet.add(item);
+            }
+        }
+
+        for (int member : resultSet) {
+            System.out.print(member + " ");
+        }
+    }
+
+    private static void populateSet(Scanner sc, Set<Integer> currentSet, int currentSetLength) {
+        for (int i = 0; i < currentSetLength; i++) {
+            int nextMember = Integer.parseInt(sc.nextLine());
+
+            currentSet.add(nextMember);
+        }
+    }
+}
