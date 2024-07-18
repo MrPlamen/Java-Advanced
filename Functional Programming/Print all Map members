@@ -1,0 +1,5 @@
+Map<String, Integer> result = new TreeMap<>();
+
+...
+
+result.forEach((key, value) -> System.out.println(key + " " + value));     // !
