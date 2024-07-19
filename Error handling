@@ -9,6 +9,8 @@ public class Main {
             int myInt = Integer.parseInt(sc.nextLine());
         } catch (IllegalArgumentException exception) {
             System.out.println("Wrong input type!");
+        } finally {
+            System.out.println("The program has finished.");
         }
     }
 }
