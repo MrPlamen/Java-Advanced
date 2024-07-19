@@ -10,7 +10,7 @@ public class Main {
         } catch (IllegalArgumentException exception) {
             System.out.println("Wrong input type!");
         } finally {
-            System.out.println("The program has finished.");
+            System.out.println("The program has finished.");   //This code is ALWAYS executed
         }
     }
 }
