@@ -1,0 +1,36 @@
+import java.util.*;
+import java.util.stream.Collectors;
+
+public class Main {
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+        String inputLine = sc.nextLine();
+        Map<String, String> phonebook= new HashMap<>();
+
+        while (!inputLine.equals("search")) {
+
+            String[] lineItems = inputLine.split("-");
+            String name = lineItems[0];
+            String number = lineItems[1];
+
+            phonebook.put(name, number);
+
+            inputLine = sc.nextLine();
+        }
+
+        while (sc.hasNext()) {                                  ///////////// NOTE! //////////
+            String searchedName = sc.nextLine();
+            if (searchedName.equals("stop")) {
+                break;
+            }
+
+            if (phonebook.containsKey(searchedName)) {
+                String phoneNumber = phonebook.get(searchedName);
+                System.out.println(searchedName + " -> " + phoneNumber);
+            } else {
+                System.out.println("Contact " + searchedName + " does not exist.");
+            }
+        }
+    }
+}
