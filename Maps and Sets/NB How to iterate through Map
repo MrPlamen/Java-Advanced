@@ -1,0 +1,8 @@
+
+Map<Integer, Integer> repo = new HashMap<>();
+
+for (Map.Entry<Integer, Integer> entry : repo.entrySet()) {
+     if (entry.getValue() == 1) {
+           return entry.getKey();
+     }
+}
